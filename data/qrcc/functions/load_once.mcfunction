@@ -19,10 +19,10 @@
 
 # 各種定数読み込み
 
-## デコード用
-    function qrcc:table/decode
-    function qrcc:table/decode_numeric
-    function qrcc:table/decode_alphanumeric
+## エンコード用
+    function qrcc:table/encode
+    function qrcc:table/encode_numeric
+    function qrcc:table/encode_alphanumeric
 
 ## 変換できる最大文字列長
     function qrcc:table/max_length

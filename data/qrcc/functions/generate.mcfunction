@@ -13,14 +13,12 @@
 # init
     data modify storage qrcc:_ data set value []
 
-# decode
-    function qrcc:decode/
+# encode
+    function qrcc:encode/
 
 
 # error correct
     function qrcc:error_correct/
-
-
 
 
 # reset

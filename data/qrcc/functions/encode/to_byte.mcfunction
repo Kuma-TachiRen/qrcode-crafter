@@ -1,5 +1,5 @@
-#> qrcc:decode/to_byte
-# @within function qrcc:decode/**
+#> qrcc:encode/to_byte
+# @within function qrcc:encode/**
 
 scoreboard players set #Tmp QRCC 0
 
@@ -39,4 +39,4 @@ data modify storage qrcc:_ data_byte append value 0b
 execute store result storage qrcc:_ data_byte[-1] byte 1.0 run scoreboard players get #Tmp QRCC
 
 scoreboard players remove #Loop QRCC 8
-execute if score #Loop QRCC matches 1.. run function qrcc:decode/to_byte
+execute if score #Loop QRCC matches 1.. run function qrcc:encode/to_byte

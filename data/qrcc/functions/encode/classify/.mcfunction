@@ -1,15 +1,15 @@
-#> qrcc:decode/classify/
+#> qrcc:encode/classify/
 # モード判別
 # @input
 #   storage qrcc:_ text
 # @output
 #   score #Mode QRCC
-# @within function qrcc:decode/**
+# @within function qrcc:encode/**
 
 scoreboard players set #Tmp QRCC 32768
 execute store result score #Loop QRCC run data get storage qrcc:_ text
 scoreboard players operation #Tmp QRCC *= #Loop QRCC
-execute if score #Loop QRCC matches 1.. run function qrcc:decode/classify/loop
+execute if score #Loop QRCC matches 1.. run function qrcc:encode/classify/loop
 
 scoreboard players reset #Loop QRCC
 

@@ -1,5 +1,5 @@
-#> qrcc:decode/version/data_calc
-# @within function qrcc:decode/version/**
+#> qrcc:encode/version/data_calc
+# @within function qrcc:encode/version/**
 
 scoreboard players operation #Tmp QRCC = #Length QRCC
 scoreboard players operation #Tmp QRCC %= #2 QRCC
@@ -8,4 +8,4 @@ execute if score #Tmp QRCC matches 1 run data modify storage qrcc:_ length_bits 
 scoreboard players operation #Length QRCC /= #2 QRCC
 
 scoreboard players remove #LengthBitsSize QRCC 1
-execute if score #LengthBitsSize QRCC matches 1.. run function qrcc:decode/version/data_calc
+execute if score #LengthBitsSize QRCC matches 1.. run function qrcc:encode/version/data_calc
