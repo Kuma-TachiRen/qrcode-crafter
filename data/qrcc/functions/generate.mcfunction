@@ -18,6 +18,7 @@
 
 
 # error correct
+    function qrcc:error_correct/
 
 
 

@@ -35,3 +35,4 @@
     function qrcc:table/gf256_mul
 
 ## 最小多項式での除算結果
+    function qrcc:table/error_correct_poly
