@@ -31,3 +31,7 @@
     function qrcc:table/block_params
 
 ## GF(256)の演算
+    function qrcc:table/gf256_add
+    function qrcc:table/gf256_mul
+
+## 最小多項式での除算結果

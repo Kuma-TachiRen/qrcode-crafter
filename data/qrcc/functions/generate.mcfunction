@@ -11,14 +11,13 @@
     #define score_holder #Size Size
 
 # init
-
-data modify storage qrcc:_ data set value []
+    data modify storage qrcc:_ data set value []
 
 # decode
     function qrcc:decode/
 
 
-
+# error correct
 
 
 
