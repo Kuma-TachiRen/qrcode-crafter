@@ -36,3 +36,18 @@
 
 ## 最小多項式での除算結果
     function qrcc:table/error_correct_poly
+
+## align pattern
+    function qrcc:table/align_patterns
+
+## format 情報
+    function qrcc:table/format_info
+
+## version 情報
+    function qrcc:table/version_info
+
+## byte を bit 列へ
+    function qrcc:table/byte_bits
+
+## mask
+    function qrcc:table/mask

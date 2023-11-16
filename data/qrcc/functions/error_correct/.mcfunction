@@ -2,7 +2,7 @@
 # 誤り訂正
 # @input
 #   storage qrcc:_ params
-#   storage qrcc:_ data_byte
+#   storage qrcc:_ data_temp
 # @output
 #   score #Mode QRCC
 #   score #Version QRCC
@@ -35,13 +35,13 @@
     execute if score #Loop QRCC matches 1.. run function qrcc:error_correct/split/
 
 # merge data
-    data modify storage qrcc:_ data_byte set from storage qrcc:_ data_split
+    data modify storage qrcc:_ data_temp set from storage qrcc:_ data_split
     scoreboard players operation #MergeLength QRCC = #Group2Length QRCC
     scoreboard players operation #MergeGroup QRCC = #Group1Count QRCC
     scoreboard players operation #MergeGroup QRCC += #Group2Count QRCC
     scoreboard players set #Loop QRCC 0
     function qrcc:error_correct/merge/
-    data modify storage qrcc:_ data_byte set value []
+    data modify storage qrcc:_ data_temp set value []
 
 # calc error correct codewords
     function qrcc:error_correct/calc/
@@ -52,7 +52,7 @@
     scoreboard players operation #MergeGroup QRCC += #Group2Count QRCC
     scoreboard players set #Loop QRCC 0
     function qrcc:error_correct/merge/
-    data modify storage qrcc:_ data_byte set value []
+    data modify storage qrcc:_ data_temp set value []
 
 scoreboard players reset #Loop QRCC
 scoreboard players reset #Loop2 QRCC

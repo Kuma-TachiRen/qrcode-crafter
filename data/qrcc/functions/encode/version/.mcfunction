@@ -34,7 +34,7 @@ data modify storage qrcc:_ length_bits set value []
 scoreboard players set #2 QRCC 2
 function qrcc:encode/version/data_calc
 scoreboard players reset #LengthBitsSize QRCC
-scoreboard players reset #Tmp QRCC
+scoreboard players reset #Temp QRCC
 scoreboard players reset #2 QRCC
 data modify storage qrcc:_ data append from storage qrcc:_ length_bits[]
 data remove storage qrcc:_ length_bits

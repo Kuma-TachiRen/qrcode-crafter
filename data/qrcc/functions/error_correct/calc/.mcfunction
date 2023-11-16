@@ -1,7 +1,7 @@
 #> qrcc:error_correct/calc/
 # @within function qrcc:error_correct/**
 
-data modify storage qrcc:_ data_byte append value []
+data modify storage qrcc:_ data_temp append value []
 scoreboard players operation #Loop QRCC = #ECLength QRCC
 function qrcc:error_correct/calc/init
 

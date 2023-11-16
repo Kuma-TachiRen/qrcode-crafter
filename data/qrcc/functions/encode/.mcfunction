@@ -18,7 +18,7 @@
     data modify storage qrcc:_ text set from storage qrcc: text
     execute if score #Mode QRCC matches 0 run function qrcc:encode/numeric/
     execute if score #Mode QRCC matches 1 run function qrcc:encode/alphanumeric/
-    #execute if score #Mode QRCC matches 2 run function qrcc:encode/unicode/
+    execute if score #Mode QRCC matches 2 run function qrcc:encode/unicode/
     data remove storage qrcc:_ text
 
 # get params
@@ -52,19 +52,19 @@
     execute if score #Loop QRCC matches 1.. run function qrcc:encode/append_0
 
 # to byte
-    scoreboard players set #Tmp2 QRCC 0
-    data modify storage qrcc:_ data_byte set value []
+    scoreboard players set #Temp2 QRCC 0
+    data modify storage qrcc:_ data_temp set value []
     scoreboard players operation #Loop QRCC = #Length QRCC
     execute if score #Loop QRCC matches 1.. run function qrcc:encode/to_byte
-    scoreboard players reset #Tmp QRCC
-    scoreboard players reset #Tmp2 QRCC
+    scoreboard players reset #Temp QRCC
+    scoreboard players reset #Temp2 QRCC
 
 # padding
     scoreboard players operation #Loop QRCC = #MaxLength QRCC
     scoreboard players operation #Loop QRCC -= #Length QRCC
     scoreboard players operation #Loop QRCC /= #16 QRCC
     execute if score #Loop QRCC matches 1.. run function qrcc:encode/padding_1
-    execute if score #Length QRCC < #MaxLength QRCC run data modify storage qrcc:_ data_byte append value -20b
+    execute if score #Length QRCC < #MaxLength QRCC run data modify storage qrcc:_ data_temp append value -20b
     scoreboard players reset #8 QRCC
     scoreboard players reset #16 QRCC
     scoreboard players reset #MaxLength QRCC

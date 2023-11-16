@@ -16,10 +16,11 @@
 # encode
     function qrcc:encode/
 
-
 # error correct
     function qrcc:error_correct/
 
+# build code
+    function qrcc:build/
 
 # reset
     scoreboard players reset * QRCC
