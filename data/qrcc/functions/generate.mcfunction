@@ -1,8 +1,8 @@
 #> qrcc:generate
 # QR コードを生成する
 # @input 
-#   storage qrcc: text
-#   storage qrcc: ec_level
+#   storage qrcc: Text
+#   storage qrcc: ECLevel
 # @api
 
 # define
@@ -17,10 +17,21 @@
     function qrcc:encode/
 
 # error correct
-    function qrcc:error_correct/
+    execute unless score #Result QRCC matches -1 run function qrcc:error_correct/
 
 # build code
-    function qrcc:build/
+    execute unless score #Result QRCC matches -1 run function qrcc:build/
+
+# return
+    execute unless score #Result QRCC matches -1 run data modify storage qrcc: Result.Code set from storage qrcc:_ code
+    execute unless score #Result QRCC matches -1 store result storage qrcc: Result.Size short 1.0 run scoreboard players get #Size QRCC
 
 # reset
     scoreboard players reset * QRCC
+    data remove storage qrcc:_ params
+    data remove storage qrcc:_ macro
+    data remove storage qrcc:_ code
+    data remove storage qrcc:_ data
+    data remove storage qrcc:_ data_temp
+    data remove storage qrcc:_ data_split
+    data remove storage qrcc:_ align_patterns

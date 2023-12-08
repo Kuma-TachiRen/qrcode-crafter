@@ -2,7 +2,7 @@
 # format info
 # @within function qrcc:build/**
 
-$data modify storage qrcc:_ format_info set from storage qrcc:table format_info[$(ec_level)][$(mask)]
+$data modify storage qrcc:_ format_info set from storage qrcc:table format_info[$(mask)][$(ec_level)]
 
 data modify storage qrcc:_ code[8][0] set from storage qrcc:_ format_info[0]
 data modify storage qrcc:_ code[8][1] set from storage qrcc:_ format_info[1]

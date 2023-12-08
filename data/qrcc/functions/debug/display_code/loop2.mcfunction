@@ -1,7 +1,7 @@
 #> qrcc:debug/display_code/loop2
 #@private
 
-$execute store result score #Val QRCC run data get storage qrcc:_ code[$(idx1)][$(idx2)]
+$execute store result score #Val QRCC run data get storage qrcc: Result.Code[$(idx1)][$(idx2)]
 $execute if score #Val QRCC matches -1 run data modify storage qrcc:_ macro.text set value '$(text){"text":"█","color":"gray"},'
 $execute if score #Val QRCC matches 0 run data modify storage qrcc:_ macro.text set value '$(text){"text":"█","color":"white"},'
 $execute if score #Val QRCC matches 1 run data modify storage qrcc:_ macro.text set value '$(text){"text":"█","color":"black"},'

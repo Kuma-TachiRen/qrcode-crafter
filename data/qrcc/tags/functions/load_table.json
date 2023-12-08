@@ -1,0 +1,18 @@
+{
+    "values": [
+        "qrcc:table/encode",
+        "qrcc:table/encode_numeric",
+        "qrcc:table/encode_alphanumeric",
+        "#qrcc:unicode",
+        "qrcc:table/max_length",
+        "qrcc:table/block_params",
+        "qrcc:table/gf256_add",
+        "qrcc:table/gf256_mul",
+        "qrcc:table/error_correct_poly",
+        "qrcc:table/align_patterns",
+        "qrcc:table/format_info",
+        "qrcc:table/version_info",
+        "qrcc:table/byte_bits",
+        "qrcc:table/mask"
+    ]
+}

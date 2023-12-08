@@ -2,8 +2,8 @@
 # エンコード
 # qrcc:_ data へ append する
 # @input
-#   storage qrcc: text
-#   storage qrcc: ec_level
+#   storage qrcc: Text
+#   storage qrcc: ECLevel
 # @output
 #   score #Mode QRCC
 #   score #Version QRCC
@@ -11,20 +11,27 @@
 # @api
 
 # classify
-    data modify storage qrcc:_ text set from storage qrcc: text
+    data modify storage qrcc:_ text set from storage qrcc: Text
     function qrcc:encode/classify/
 
 # encode
-    data modify storage qrcc:_ text set from storage qrcc: text
+    data modify storage qrcc:_ text set from storage qrcc: Text
+    data modify storage qrcc:_ data_temp set value []
     execute if score #Mode QRCC matches 0 run function qrcc:encode/numeric/
     execute if score #Mode QRCC matches 1 run function qrcc:encode/alphanumeric/
     execute if score #Mode QRCC matches 2 run function qrcc:encode/unicode/
     data remove storage qrcc:_ text
+    execute if score #Result QRCC matches -1 run return -1
+
+# calc version
+    function qrcc:encode/version/
+    data modify storage qrcc:_ data append from storage qrcc:_ data_temp[]
+    data remove storage qrcc:_ data_temp
 
 # get params
     data modify storage qrcc:_ macro set value {}
     execute store result storage qrcc:_ macro.version int 1 run scoreboard players get #Version QRCC
-    data modify storage qrcc:_ macro.ec_level set from storage qrcc: ec_level
+    data modify storage qrcc:_ macro.ec_level set from storage qrcc: ECLevel
     function qrcc:encode/get_params with storage qrcc:_ macro
 
 # calc size
