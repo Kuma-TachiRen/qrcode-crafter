@@ -14,27 +14,34 @@ def gen_range(mi, ma):
             unicodedata.name(c)
             code_str = c.encode("utf-8").hex()
             code = int(code_str, 16)
-            res[c] = list(map(int, format(code, "0" + str(len(code_str) * 4) + "b")))
+            bytes = []
+            while code > 0:
+                bytes.insert(0, code & 0xFF)
+                code >>= 8
+            res[c] = list(map(lambda x: f"{x if x < 0x80 else x-0x100}b", bytes))
         except:
             True
     res_str = str(res)
-    res_str = re.sub(" ", "", res_str)
+    res_str = re.sub("(?<=[:,]) ", "", res_str)
     res_str = re.sub("'", '"', res_str)
-    res_str = re.sub("(?<=[01])", "b", res_str)
+    res_str = re.sub('"(-?[\d]+b)"', "\\1", res_str)
     print("data modify storage qrcc:table encode_unicode_map merge value", res_str)
 
 
 def gen_string(s):
     res = {}
     for c in s:
-        unicodedata.name(c)
         code_str = c.encode("utf-8").hex()
         code = int(code_str, 16)
-        res[c] = list(map(int, format(code, "0" + str(len(code_str) * 4) + "b")))
+        bytes = []
+        while code > 0:
+            bytes.insert(0, code & 0xFF)
+            code >>= 8
+        res[c] = list(map(lambda x: f"{x if x < 0x80 else x-0x100}b", bytes))
     res_str = str(res)
-    res_str = re.sub(" ", "", res_str)
+    res_str = re.sub("(?<=[:,]) ", "", res_str)
     res_str = re.sub("'", '"', res_str)
-    res_str = re.sub("(?<=[01])", "b", res_str)
+    res_str = re.sub('"(-?[\d]+b)"', "\\1", res_str)
     print("data modify storage qrcc:table encode_unicode_map merge value", res_str)
 
 
